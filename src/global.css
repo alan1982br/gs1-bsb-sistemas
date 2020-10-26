@@ -3,3 +3,21 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  background: black;
+  overflow: hidden;
+}
+
+video {
+  width: 1080px;
+  height: 2120px;
+  position: absolute;
+  left: 50%;
+  top: -50%;
+  transform: translate(-50%, -50%);
+}
+
+video.active {
+  top: 50%;
+}
