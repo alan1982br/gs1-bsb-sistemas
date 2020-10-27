@@ -1,13 +1,15 @@
-import React, { useRef } from 'react';
+import React, {useEffect, useState} from 'react';
 
 function Video({ category, elRefs }) {
   return (
     <div>
-      {console.log('alou ref: ', elRefs)}
-      {/* {elRefs[0]?.current?.classList.add('active')} */}
-      {category.map((current, index) => (
-        <video key={index} ref={elRefs[index]} src={current} type="video/mp4" autoPlay muted />
-      ))}
+      {category.map((current, index) => {
+        console.log('return')
+        return (
+          <video key={index} ref={elRefs[index].current} src={current} type="video/mp4" autoPlay muted />
+        )
+      })}
+      
     </div>
   );
 }
