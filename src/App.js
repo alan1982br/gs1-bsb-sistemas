@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react';
 
-import Screensaver from './components/Screensaver'
 import Identificar from './components/Identificar'
 import Capturar from './components/Capturar'
 import Compartilhar from './components/Compartilhar'
 
+import screensaver from './assets/videos/identificar/1_GTIN.mp4';
+
 /*
 [x] Keydown
 [x] Referenciar cada video
-[ ] Ao apertar o botão descer o próximo video
+[x] Ao apertar o botão descer o próximo video
 [x] Trocar os videos ao apertar outro botao
 [x] Deixar os videos passando sozinhos
-[ ] Screensaver
-[ ] Leitura de files
-[ ] Arrumar resolução do video
+[x] Screensaver
+[x] Ativar screensaver após terminar uma categoria
+[ ] Limpar todos os timeOuts quando mudar de categoria (colocar dentro de um array e dar push?)
 */
 
 function App() {
@@ -45,13 +46,25 @@ function App() {
       setCapturar(false);
     }
   };
+
+  function categoryEnd() {
+    setCompartilhar(false);
+    setIdentificar(false);
+    setCapturar(false);
+  }
+
+  const Screensaver = () => (
+    <div>
+      <video src={screensaver} className="active" type="video/mp4" autoPlay muted loop/>
+    </div>
+  )
   
   return (
     <>
       {!identificarCategory && !capturarCategory && !compartilharCategory && <Screensaver />}
-      {identificarCategory && <Identificar />}
-      {capturarCategory && <Capturar />}
-      {compartilharCategory && <Compartilhar />}
+      {identificarCategory && <Identificar categoryEnd={categoryEnd} />}
+      {capturarCategory && <Capturar categoryEnd={categoryEnd} />}
+      {compartilharCategory && <Compartilhar categoryEnd={categoryEnd} />}
     </>
   );
 }
