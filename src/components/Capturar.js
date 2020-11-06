@@ -1,9 +1,12 @@
 import React, { useRef, useEffect } from 'react';
 
-import video01 from '../assets/videos/capturar/1.0_EAN_completo.mp4';
-import video02 from '../assets/videos/capturar/2.0_ITF_completo.mp4';
-import video03 from '../assets/videos/capturar/3.0_GS1-DataBar-completo.mp4';
-import video04 from '../assets/videos/capturar/4.0_GS1-128-completo.mp4';
+import video01 from '../assets/02_capturar/placeholder/Capturar_Final.mp4';
+import video02 from '../assets/02_capturar/placeholder/Capturar_Final 2.mp4';
+import video03 from '../assets/02_capturar/placeholder/Capturar_Final 3.mp4';
+import video04 from '../assets/02_capturar/placeholder/Capturar_Final 4.mp4';
+import video05 from '../assets/02_capturar/placeholder/Capturar_Final 5.mp4';
+import video06 from '../assets/02_capturar/placeholder/Capturar_Final 6.mp4';
+import video07 from '../assets/02_capturar/placeholder/Capturar_Final 7.mp4';
 
 function Capturar({ categoryEnd }) {
   useEffect(() => {
@@ -19,15 +22,27 @@ function Capturar({ categoryEnd }) {
     },
     {
       ref: useRef(),
-      time: 13,
+      time: 18,
     },
     {
       ref: useRef(),
-      time: 14,
+      time: 11,
     },
     {
       ref: useRef(),
-      time: 17,
+      time: 16,
+    },
+    {
+      ref: useRef(),
+      time: 15,
+    },
+    {
+      ref: useRef(),
+      time: 16,
+    },
+    {
+      ref: useRef(),
+      time: 20,
     },
   ];
 
@@ -71,7 +86,10 @@ function Capturar({ categoryEnd }) {
       <video ref={refs[0].ref} src={video01} type="video/mp4" autoPlay muted />
       <video ref={refs[1].ref} src={video02} type="video/mp4" autoPlay muted />
       <video ref={refs[2].ref} src={video03} type="video/mp4" autoPlay muted />
-      <video ref={refs[3].ref} src={video04} onEnded={categoryEnd} type="video/mp4" autoPlay muted />
+      <video ref={refs[3].ref} src={video04} type="video/mp4" autoPlay muted />
+      <video ref={refs[4].ref} src={video05} type="video/mp4" autoPlay muted />
+      <video ref={refs[5].ref} src={video06} type="video/mp4" autoPlay muted />
+      <video ref={refs[6].ref} src={video07} onEnded={categoryEnd} type="video/mp4" autoPlay muted />
     </div>
   );
 }

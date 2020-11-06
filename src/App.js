@@ -4,7 +4,7 @@ import Identificar from './components/Identificar'
 import Capturar from './components/Capturar'
 import Compartilhar from './components/Compartilhar'
 
-import screensaver from './assets/videos/identificar/1_GTIN.mp4';
+import screensaver from './assets/bemvindo_compartilhar_FINAL_1.mp4';
 
 /*
 [x] Keydown

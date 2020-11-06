@@ -1,9 +1,12 @@
 import React, { useRef, useEffect } from 'react';
 
-import video01 from '../assets/videos/identificar/1_GTIN.mp4';
-import video02 from '../assets/videos/identificar/2_SSCC.mp4';
-import video03 from '../assets/videos/identificar/3_GIAI.mp4';
-import video04 from '../assets/videos/identificar/4_GRAI.mp4';
+import video01 from '../assets/01_identificar/placeholder/Identificar_Final_corte1.mp4';
+import video02 from '../assets/01_identificar/placeholder/Identificar_Final_corte2.mp4';
+import video03 from '../assets/01_identificar/placeholder/Identificar_Final_corte3.mp4';
+import video04 from '../assets/01_identificar/placeholder/Identificar_Final_corte4.mp4';
+import video05 from '../assets/01_identificar/placeholder/Identificar_Final_corte5.mp4';
+import video06 from '../assets/01_identificar/placeholder/Identificar_Final_corte6.mp4';
+import video07 from '../assets/01_identificar/placeholder/Identificar_Final_corte7.mp4';
 
 function Identificar({ categoryEnd }) {
   useEffect(() => {
@@ -19,15 +22,27 @@ function Identificar({ categoryEnd }) {
     },
     {
       ref: useRef(),
-      time: 10,
+      time: 12,
     },
     {
       ref: useRef(),
-      time: 10,
+      time: 9,
     },
     {
       ref: useRef(),
-      time: 10,
+      time: 7,
+    },
+    {
+      ref: useRef(),
+      time: 7,
+    },
+    {
+      ref: useRef(),
+      time: 8,
+    },
+    {
+      ref: useRef(),
+      time: 11,
     },
   ];
 
@@ -71,7 +86,10 @@ function Identificar({ categoryEnd }) {
       <video ref={refs[0].ref} src={video01} type="video/mp4" autoPlay muted />
       <video ref={refs[1].ref} src={video02} type="video/mp4" autoPlay muted />
       <video ref={refs[2].ref} src={video03} type="video/mp4" autoPlay muted />
-      <video ref={refs[3].ref} src={video04} onEnded={categoryEnd} type="video/mp4" autoPlay muted />
+      <video ref={refs[3].ref} src={video04} type="video/mp4" autoPlay muted />
+      <video ref={refs[4].ref} src={video05} type="video/mp4" autoPlay muted />
+      <video ref={refs[5].ref} src={video06} type="video/mp4" autoPlay muted />
+      <video ref={refs[6].ref} src={video07} onEnded={categoryEnd} type="video/mp4" autoPlay muted />
     </div>
   );
 }
