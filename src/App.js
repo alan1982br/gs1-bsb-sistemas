@@ -46,7 +46,7 @@ function App() {
       setCapturar(false);
     }
   };
-
+  
   function categoryEnd() {
     setCompartilhar(false);
     setIdentificar(false);

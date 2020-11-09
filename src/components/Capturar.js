@@ -14,35 +14,27 @@ function Capturar({ categoryEnd }) {
     return () => window.removeEventListener('keydown', handleKeyDown, false);
   });
 
-  const timeouts = [];
   const refs = [
     {
       ref: useRef(),
-      time: 0,
     },
     {
       ref: useRef(),
-      time: 18,
     },
     {
       ref: useRef(),
-      time: 11,
     },
     {
       ref: useRef(),
-      time: 16,
     },
     {
       ref: useRef(),
-      time: 15,
     },
     {
       ref: useRef(),
-      time: 16,
     },
     {
       ref: useRef(),
-      time: 20,
     },
   ];
 
@@ -52,44 +44,48 @@ function Capturar({ categoryEnd }) {
       refs.some((atual, i) => {
         const current = atual?.ref?.current;
 
-        if(current.classList.contains('active')){
+        if(current.classList.contains('active') && refs.length !== (i+1)) {
           current.pause();
           current.currentTime = 0;
           return false; 
         }
 
         current.classList.add('active');
-        clearTimeout(timeouts[i]?.timeout);
+        current.play();
         return true;
       })
     }
   };
 
-  useEffect(() => {
-    let time = 0;
-    
-    refs.forEach((atual) => {
-      time += atual.time * 1000;
+  function executeVideo() {
+    refs.some((atual, i) => {
+      const current = atual?.ref?.current;
 
-      timeouts.push({ 
-        timeout: setTimeout(() => {
-          // eslint-disable-next-line
-          atual?.ref?.current?.classList.add('active');
-          console.log('Capturar actived')
-        }, time )
-      });
-    });   
+      if(current.classList.contains('active')){
+        return false; 
+      }
+
+      current.classList.add('active');
+      current.play();
+      return true;
+    })
+  }
+
+  useEffect(() => {
+    const current = refs[0].ref.current;
+    current.classList.add('active');
+    current.play();  
   })
 
   return (
     <div>
-      <video ref={refs[0].ref} src={video01} type="video/mp4" autoPlay muted />
-      <video ref={refs[1].ref} src={video02} type="video/mp4" autoPlay muted />
-      <video ref={refs[2].ref} src={video03} type="video/mp4" autoPlay muted />
-      <video ref={refs[3].ref} src={video04} type="video/mp4" autoPlay muted />
-      <video ref={refs[4].ref} src={video05} type="video/mp4" autoPlay muted />
-      <video ref={refs[5].ref} src={video06} type="video/mp4" autoPlay muted />
-      <video ref={refs[6].ref} src={video07} onEnded={categoryEnd} type="video/mp4" autoPlay muted />
+      <video ref={refs[0].ref} src={video01} onEnded={executeVideo} type="video/mp4" />
+      <video ref={refs[1].ref} src={video02} onEnded={executeVideo} type="video/mp4" />
+      <video ref={refs[2].ref} src={video03} onEnded={executeVideo} type="video/mp4" />
+      <video ref={refs[3].ref} src={video04} onEnded={executeVideo} type="video/mp4" />
+      <video ref={refs[4].ref} src={video05} onEnded={executeVideo} type="video/mp4" />
+      <video ref={refs[5].ref} src={video06} onEnded={executeVideo} type="video/mp4" />
+      <video ref={refs[6].ref} src={video07} onEnded={categoryEnd} type="video/mp4" />
     </div>
   );
 }
