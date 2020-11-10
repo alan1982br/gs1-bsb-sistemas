@@ -1,12 +1,12 @@
 import React, { useRef, useEffect } from 'react';
 
-import video01 from '../assets/01_identificar/placeholder/Identificar_Final_corte1.mp4';
-import video02 from '../assets/01_identificar/placeholder/Identificar_Final_corte2.mp4';
-import video03 from '../assets/01_identificar/placeholder/Identificar_Final_corte3.mp4';
-import video04 from '../assets/01_identificar/placeholder/Identificar_Final_corte4.mp4';
-import video05 from '../assets/01_identificar/placeholder/Identificar_Final_corte5.mp4';
-import video06 from '../assets/01_identificar/placeholder/Identificar_Final_corte6.mp4';
-import video07 from '../assets/01_identificar/placeholder/Identificar_Final_corte7.mp4';
+import video01 from '../assets/01_identificar/renders/Identificar_Final_corte1.mp4';
+import video02 from '../assets/01_identificar/renders/Identificar_Final_corte2.mp4';
+import video03 from '../assets/01_identificar/renders/Identificar_Final_corte3.mp4';
+import video04 from '../assets/01_identificar/renders/Identificar_Final_corte4.mp4';
+import video05 from '../assets/01_identificar/renders/Identificar_Final_corte5.mp4';
+import video06 from '../assets/01_identificar/renders/Identificar_Final_corte6.mp4';
+import video07 from '../assets/01_identificar/renders/Identificar_Final_corte7.mp4';
 
 function Identificar({ categoryEnd }) {
   useEffect(() => {
@@ -46,7 +46,6 @@ function Identificar({ categoryEnd }) {
 
         if(current.classList.contains('active') && refs.length !== (i+1)) {
           current.pause();
-          current.currentTime = 0;
           return false; 
         }
 

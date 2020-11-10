@@ -6,17 +6,6 @@ import Compartilhar from './components/Compartilhar'
 
 import screensaver from './assets/bemvindo_compartilhar_FINAL_1.mp4';
 
-/*
-[x] Keydown
-[x] Referenciar cada video
-[x] Ao apertar o botão descer o próximo video
-[x] Trocar os videos ao apertar outro botao
-[x] Deixar os videos passando sozinhos
-[x] Screensaver
-[x] Ativar screensaver após terminar uma categoria
-[ ] Limpar todos os timeOuts quando mudar de categoria (colocar dentro de um array e dar push?)
-*/
-
 function App() {
   const [identificarCategory, setIdentificar] = useState(false);
   const [capturarCategory, setCapturar] = useState(false);

@@ -1,14 +1,14 @@
 import React, { useRef, useEffect } from 'react';
 
-import video01 from '../assets/03_compartilhar/placeholder/Compartilhar_Final.mp4';
-import video02 from '../assets/03_compartilhar/placeholder/Compartilhar_Final 2.mp4';
-import video03 from '../assets/03_compartilhar/placeholder/Compartilhar_Final 3.mp4';
-import video04 from '../assets/03_compartilhar/placeholder/Compartilhar_Final 4.mp4';
-import video05 from '../assets/03_compartilhar/placeholder/Compartilhar_Final 5.mp4';
-import video06 from '../assets/03_compartilhar/placeholder/Compartilhar_Final 6.mp4';
-import video07 from '../assets/03_compartilhar/placeholder/Compartilhar_Final 7.mp4';
-import video08 from '../assets/03_compartilhar/placeholder/Compartilhar_Final 8.mp4';
-import video09 from '../assets/03_compartilhar/placeholder/Compartilhar_Final 9.mp4';
+import video01 from '../assets/03_compartilhar/renders/Compartilhar_final_corte1.mp4';
+import video02 from '../assets/03_compartilhar/renders/Compartilhar_final_corte2.mp4';
+import video03 from '../assets/03_compartilhar/renders/Compartilhar_final_corte3.mp4';
+import video04 from '../assets/03_compartilhar/renders/Compartilhar_final_corte4.mp4';
+import video05 from '../assets/03_compartilhar/renders/Compartilhar_final_corte5.mp4';
+import video06 from '../assets/03_compartilhar/renders/Compartilhar_final_corte6.mp4';
+import video07 from '../assets/03_compartilhar/renders/Compartilhar_final_corte7.mp4';
+import video08 from '../assets/03_compartilhar/renders/Compartilhar_final_corte8.mp4';
+import video09 from '../assets/03_compartilhar/renders/Compartilhar_final_corte9.mp4';
 
 function Compartilhar({ categoryEnd }) {
   useEffect(() => {
@@ -54,7 +54,6 @@ function Compartilhar({ categoryEnd }) {
 
         if(current.classList.contains('active') && refs.length !== (i+1)) {
           current.pause();
-          current.currentTime = 0;
           return false; 
         }
 
