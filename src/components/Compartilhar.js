@@ -1,14 +1,14 @@
 import React, { useRef, useEffect } from 'react';
 
-import video01 from '../assets/03_compartilhar/renders/Compartilhar_final_corte1.mp4';
-import video02 from '../assets/03_compartilhar/renders/Compartilhar_final_corte2.mp4';
-import video03 from '../assets/03_compartilhar/renders/Compartilhar_final_corte3.mp4';
-import video04 from '../assets/03_compartilhar/renders/Compartilhar_final_corte4.mp4';
-import video05 from '../assets/03_compartilhar/renders/Compartilhar_final_corte5.mp4';
-import video06 from '../assets/03_compartilhar/renders/Compartilhar_final_corte6.mp4';
-import video07 from '../assets/03_compartilhar/renders/Compartilhar_final_corte7.mp4';
-import video08 from '../assets/03_compartilhar/renders/Compartilhar_final_corte8.mp4';
-import video09 from '../assets/03_compartilhar/renders/Compartilhar_final_corte9.mp4';
+import video01 from '../assets/03_compartilhar/webm/Compartilhar_final_corte1.webm';
+import video02 from '../assets/03_compartilhar/webm/Compartilhar_final_corte2.webm';
+import video03 from '../assets/03_compartilhar/webm/Compartilhar_final_corte3.webm';
+import video04 from '../assets/03_compartilhar/webm/Compartilhar_final_corte4.webm';
+import video05 from '../assets/03_compartilhar/webm/Compartilhar_final_corte5.webm';
+import video06 from '../assets/03_compartilhar/webm/Compartilhar_final_corte6.webm';
+import video07 from '../assets/03_compartilhar/webm/Compartilhar_final_corte7.webm';
+import video08 from '../assets/03_compartilhar/webm/Compartilhar_final_corte8.webm';
+import video09 from '../assets/03_compartilhar/webm/Compartilhar_final_corte9.webm';
 
 function Compartilhar({ categoryEnd }) {
   useEffect(() => {
@@ -86,15 +86,15 @@ function Compartilhar({ categoryEnd }) {
 
   return (
     <div>
-      <video ref={refs[0].ref} src={video01} onEnded={executeVideo} type="video/mp4" />
-      <video ref={refs[1].ref} src={video02} onEnded={executeVideo} type="video/mp4" />
-      <video ref={refs[2].ref} src={video03} onEnded={executeVideo} type="video/mp4" />
-      <video ref={refs[3].ref} src={video04} onEnded={executeVideo} type="video/mp4" />
-      <video ref={refs[4].ref} src={video05} onEnded={executeVideo} type="video/mp4" />
-      <video ref={refs[5].ref} src={video06} onEnded={executeVideo} type="video/mp4" />
-      <video ref={refs[6].ref} src={video07} onEnded={executeVideo} type="video/mp4" />
-      <video ref={refs[7].ref} src={video08} onEnded={executeVideo} type="video/mp4" />
-      <video ref={refs[8].ref} src={video09} onEnded={categoryEnd} type="video/mp4" />
+      <video ref={refs[0].ref} src={video01} onEnded={executeVideo} type="video/webm" />
+      <video ref={refs[1].ref} src={video02} onEnded={executeVideo} type="video/webm" />
+      <video ref={refs[2].ref} src={video03} onEnded={executeVideo} type="video/webm" />
+      <video ref={refs[3].ref} src={video04} onEnded={executeVideo} type="video/webm" />
+      <video ref={refs[4].ref} src={video05} onEnded={executeVideo} type="video/webm" />
+      <video ref={refs[5].ref} src={video06} onEnded={executeVideo} type="video/webm" />
+      <video ref={refs[6].ref} src={video07} onEnded={executeVideo} type="video/webm" />
+      <video ref={refs[7].ref} src={video08} onEnded={executeVideo} type="video/webm" />
+      <video ref={refs[8].ref} src={video09} onEnded={categoryEnd} type="video/webm" />
     </div>
   );
 }

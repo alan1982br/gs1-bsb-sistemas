@@ -4,19 +4,28 @@ import Identificar from './components/Identificar'
 import Capturar from './components/Capturar'
 import Compartilhar from './components/Compartilhar'
 
-import screensaver from './assets/bemvindo_compartilhar_FINAL_1.mp4';
+import mainVideo from './assets/entrada.webm';
+import screensaver from './assets/Screensaver.webm';
 
 function App() {
   const [identificarCategory, setIdentificar] = useState(false);
   const [capturarCategory, setCapturar] = useState(false);
   const [compartilharCategory, setCompartilhar] = useState(false);
+  const [screensaverBool, setScreensaver] = useState(false);
+  let timeout;
   
   useEffect(() => {
+    makeTimeout();
+
     window.addEventListener('keydown', handleKeyDown, false);
     return () => window.removeEventListener('keydown', handleKeyDown, false);
   });
 
   function handleKeyDown(e) {
+    clearTimeout(timeout);
+    setScreensaver(false);
+    makeTimeout();
+
     if (e.keyCode === 49) {
       setIdentificar(true);
       setCapturar(false);
@@ -35,6 +44,13 @@ function App() {
       setCapturar(false);
     }
   };
+
+  function makeTimeout() {
+    timeout = window.setTimeout( 
+      function() {
+        setScreensaver(true);
+    }, 600000);
+  }
   
   function categoryEnd() {
     setCompartilhar(false);
@@ -42,15 +58,18 @@ function App() {
     setCapturar(false);
   }
 
+  const MainVideo = () => (
+    <video src={mainVideo} className="main-video" type="video/webm" autoPlay muted loop/>
+  )
+
   const Screensaver = () => (
-    <div>
-      <video src={screensaver} className="active" type="video/mp4" autoPlay muted loop/>
-    </div>
+    <video src={screensaver} className="screensaver" type="video/webm" autoPlay muted loop/>
   )
   
   return (
     <>
-      {!identificarCategory && !capturarCategory && !compartilharCategory && <Screensaver />}
+      {screensaverBool && <Screensaver />}
+      {!identificarCategory && !capturarCategory && !compartilharCategory && <MainVideo />}
       {identificarCategory && <Identificar categoryEnd={categoryEnd} />}
       {capturarCategory && <Capturar categoryEnd={categoryEnd} />}
       {compartilharCategory && <Compartilhar categoryEnd={categoryEnd} />}

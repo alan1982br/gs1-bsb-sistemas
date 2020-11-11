@@ -15,12 +15,20 @@ video {
   position: absolute;
   left: 50%;
   top: 50%;
-  opacity: 0;
   transform: translate(-50%, -50%);
-  transition: top 0.5s;
+  opacity: 0;
 }
 
 video.active {
   opacity: 1;
   transition: opacity 0.5s;
+}
+
+.main-video {
+  opacity: 1;
+}
+
+.screensaver {
+  z-index: 20;
+  opacity: 1;
 }

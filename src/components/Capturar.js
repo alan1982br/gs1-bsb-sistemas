@@ -1,12 +1,12 @@
 import React, { useRef, useEffect } from 'react';
 
-import video01 from '../assets/02_capturar/render/Capturar_Final_corte1.mp4';
-import video02 from '../assets/02_capturar/render/Capturar_Final_corte2.mp4';
-import video03 from '../assets/02_capturar/render/Capturar_Final_corte3.mp4';
-import video04 from '../assets/02_capturar/render/Capturar_Final_corte4.mp4';
-import video05 from '../assets/02_capturar/render/Capturar_Final_corte5.mp4';
-import video06 from '../assets/02_capturar/render/Capturar_Final_corte6.mp4';
-import video07 from '../assets/02_capturar/render/Capturar_Final_corte7.mp4';
+import video01 from '../assets/02_capturar/webm/Capturar_Final_corte1.webm';
+import video02 from '../assets/02_capturar/webm/Capturar_Final_corte2.webm';
+import video03 from '../assets/02_capturar/webm/Capturar_Final_corte3.webm';
+import video04 from '../assets/02_capturar/webm/Capturar_Final_corte4.webm';
+import video05 from '../assets/02_capturar/webm/Capturar_Final_corte5.webm';
+import video06 from '../assets/02_capturar/webm/Capturar_Final_corte6.webm';
+import video07 from '../assets/02_capturar/webm/Capturar_Final_corte7.webm';
 
 function Capturar({ categoryEnd }) {
   useEffect(() => {
@@ -78,13 +78,13 @@ function Capturar({ categoryEnd }) {
 
   return (
     <div>
-      <video ref={refs[0].ref} src={video01} onEnded={executeVideo} type="video/mp4" />
-      <video ref={refs[1].ref} src={video02} onEnded={executeVideo} type="video/mp4" />
-      <video ref={refs[2].ref} src={video03} onEnded={executeVideo} type="video/mp4" />
-      <video ref={refs[3].ref} src={video04} onEnded={executeVideo} type="video/mp4" />
-      <video ref={refs[4].ref} src={video05} onEnded={executeVideo} type="video/mp4" />
-      <video ref={refs[5].ref} src={video06} onEnded={executeVideo} type="video/mp4" />
-      <video ref={refs[6].ref} src={video07} onEnded={categoryEnd} type="video/mp4" />
+      <video ref={refs[0].ref} src={video01} onEnded={executeVideo} type="video/webm" />
+      <video ref={refs[1].ref} src={video02} onEnded={executeVideo} type="video/webm" />
+      <video ref={refs[2].ref} src={video03} onEnded={executeVideo} type="video/webm" />
+      <video ref={refs[3].ref} src={video04} onEnded={executeVideo} type="video/webm" />
+      <video ref={refs[4].ref} src={video05} onEnded={executeVideo} type="video/webm" />
+      <video ref={refs[5].ref} src={video06} onEnded={executeVideo} type="video/webm" />
+      <video ref={refs[6].ref} src={video07} onEnded={categoryEnd} type="video/webm" />
     </div>
   );
 }

@@ -3,10 +3,10 @@
 ## Detalhes da aplicação:
 
 Ao apertar determinada tecla você entra em uma categoria da respectiva tecla apertada. Cada categoria tem seus videos que
-passam um por um. Esses videos vão trocando automaticamente, sempre que um acaba o próximo se inicia. Apertando tecla mais
-de uma vez daquela categoria você pode acelerar ela e assim chamar os próximos videos mais rapidamente.
-Caso aperte outra tecla no meio de uma categoria, a categoria atual se encerra e começa a outra.
-Ao final de cada categoria ele chama o screensaver.
+passam um por um. Esses videos vão trocando automaticamente, sempre que um acaba o próximo se inicia. Apertando a mesma tecla
+daquela categoria mais de uma vez você pode acelerar ela e assim chamar os próximos videos mais rapidamente.
+Também pode encerrar e categoria e chamar outra apertando uma tecla diferente da categoria atual.
+Ao final de cada categoria ele chama o video de entrada.
 
 ## Instalação e Execução
 Instalação das dependências:
