@@ -1,5 +1,11 @@
 # Sistemas - GS1 Brasília 
 
+## Assets:
+
+Pegar assets do drive e adicionar dentro de src:
+
+```1_Clientes/2020/GS1/Retrofit_Brasilia/11-SistemaGS1/DEV/assets```
+
 ## Detalhes da aplicação:
 
 Ao apertar determinada tecla você entra em uma categoria da respectiva tecla apertada. Cada categoria tem seus videos que

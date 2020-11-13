@@ -2,10 +2,13 @@
   "name": "gs1-bsb-sistemas",
   "version": "0.1.0",
   "private": true,
+  "main": "main.js",
+  "homepage": "./",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "electron": "^10.1.5",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "3.4.4"
@@ -14,7 +17,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "app": "electron .",
+    "build-exe": "electron-packager . app --platform win32 --overwrite --arch x64 --out dist/"
   },
   "eslintConfig": {
     "extends": "react-app"
