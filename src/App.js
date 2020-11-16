@@ -35,9 +35,9 @@ function App() {
 
 
   const handleKeyDown = async (e, dataBtn) => {
-    // clearTimeout(timeout);
-    // setScreensaver(false);
-    // makeTimeout();
+    clearTimeout(timeout);
+    setScreensaver(false);
+    makeTimeout();
 
     if (e.keyCode === 49 ||dataBtn === 49 ) {
       setIdentificar(true);
