@@ -5,13 +5,20 @@
   "main": "main.js",
   "homepage": "./",
   "dependencies": {
+    "@serialport/parser-readline": "^9.0.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "concurrently": "^5.3.0",
     "electron": "^10.1.5",
+    "express": "^4.17.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-scripts": "3.4.4"
+    "react-scripts": "3.4.4",
+    "serialport": "^9.0.2",
+    "socket.io": "^3.0.1",
+    "socket.io-client": "^3.0.1",
+    "utf8": "^3.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -19,7 +26,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "app": "electron .",
-    "build-exe": "electron-packager . app --platform win32 --overwrite --arch x64 --out dist/"
+    "build-exe": "electron-packager . app --platform win32 --overwrite --arch x64 --out dist/",
+    "start-app": "concurrently \"node server_serialport.js com4\" \"npm start\""
   },
   "eslintConfig": {
     "extends": "react-app"
