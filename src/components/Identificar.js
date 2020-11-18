@@ -42,8 +42,12 @@ function Identificar({ categoryEnd }) {
     },
   ];
 
+  let isKeyDownActive = false;
+
   function handleKeyDown(e) {
-    if (e.keyCode === 49) {
+    if (e.keyCode === 49 && isKeyDownActive) {
+      isKeyDownActive = false;
+      keyDownDelay();
 
       refs.some((atual, i) => {
         const current = atual?.ref?.current;
@@ -74,10 +78,18 @@ function Identificar({ categoryEnd }) {
     })
   }
 
+  function keyDownDelay() {
+    window.setTimeout( 
+      function() {
+        isKeyDownActive = true;
+    }, 2000); // 2s
+  }
+
   useEffect(() => {
     const current = refs[0].ref.current;
     current.classList.add('active');
-    current.play();  
+    current.play();
+    keyDownDelay();
   })
 
   return (
