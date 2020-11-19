@@ -16,7 +16,7 @@ function App() {
   const [screensaverBool, setScreensaver] = useState(false);
   const ENDPOINT = "http://127.0.0.1:4001";
 
-  let timeout, isKeyDownActive = true;
+  let timeout;
   
   useEffect(() => {
     const socket = socketIOClient(ENDPOINT, {transports: ['websocket', 'polling', 'flashsocket']});
@@ -38,9 +38,9 @@ function App() {
     setScreensaver(false);
     makeTimeout();
 
-    if(isKeyDownActive){
-      isKeyDownActive = false;
-      keyDownDelay();
+    // if(isKeyDownActive){
+      // isKeyDownActive = false;
+      // keyDownDelay();
 
       if (e.keyCode === 49 || dataBtn === 49 ) {
         setIdentificar(true);
@@ -59,27 +59,21 @@ function App() {
         setIdentificar(false);
         setCapturar(false);
       }
-    }
+    // }
   };
 
-  function keyDownDelay() {
-    window.setTimeout( 
-      function() {
-        isKeyDownActive = true;
-    }, 5000); // 5s
-  }
+  // function keyDownDelay() {
+  //   window.setTimeout( 
+  //     function() {
+  //       isKeyDownActive = true;
+  //   }, 5000); // 5s
+  // }
 
   function makeTimeout() {
     timeout = window.setTimeout( 
       function() {
         setScreensaver(true);
-    }, 600000);
-  }
-  
-  function categoryEnd() {
-    setCompartilhar(false);
-    setIdentificar(false);
-    setCapturar(false);
+    }, 300000); // 5min
   }
 
   const MainVideo = () => (
@@ -89,14 +83,14 @@ function App() {
   const Screensaver = () => (
     <video src={screensaver} className="screensaver" type="video/webm" autoPlay muted loop/>
   )
-  
+
   return (
     <>
       {screensaverBool && <Screensaver />}
       {!identificarCategory && !capturarCategory && !compartilharCategory && <MainVideo />}
-      {identificarCategory && <Identificar categoryEnd={categoryEnd} />}
-      {capturarCategory && <Capturar categoryEnd={categoryEnd} />}
-      {compartilharCategory && <Compartilhar categoryEnd={categoryEnd} />}
+      {identificarCategory && <Identificar />}
+      {capturarCategory && <Capturar />}
+      {compartilharCategory && <Compartilhar />}
     </>
   );
 }
