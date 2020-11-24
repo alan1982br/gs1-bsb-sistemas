@@ -101,14 +101,14 @@ function Identificar() {
   useEffect(() => {
     const current = refs[0].ref.current;
     current.classList.add('active');
-    current.play();
+    // current.play();
     // keyDownDelay();
   })
 
   return (
     <div>
-      <video ref={refs[0].ref} src={mainVideo} className="main-video" onEnded={initCategory} type="video/webm" />
-      <video ref={refs[1].ref} src={video01} onEnded={executeVideo} type="video/webm" />
+      <video ref={refs[0].ref} src={mainVideo} className="main-video" onEnded={initCategory} autoPlay muted type="video/webm" />
+      <video ref={refs[1].ref} src={video01} onEnded={executeVideo} muted type="video/webm" />
       <video ref={refs[2].ref} src={video02} onEnded={executeVideo} type="video/webm" />
       <video ref={refs[3].ref} src={video03} onEnded={executeVideo} type="video/webm" />
       <video ref={refs[4].ref} src={video04} onEnded={executeVideo} type="video/webm" />

@@ -4,13 +4,12 @@ import Identificar from './components/Identificar'
 import Capturar from './components/Capturar'
 import Compartilhar from './components/Compartilhar'
 
-import mainVideo from './assets/entrada.webm';
 import screensaver from './assets/Screensaver.webm';
 
 import socketIOClient from "socket.io-client";
 
 function App() {
-  const [identificarCategory, setIdentificar] = useState(false);
+  const [identificarCategory, setIdentificar] = useState(true);
   const [capturarCategory, setCapturar] = useState(false);
   const [compartilharCategory, setCompartilhar] = useState(false);
   const [screensaverBool, setScreensaver] = useState(false);
@@ -26,7 +25,7 @@ function App() {
       
     });
 
-     makeTimeout();
+    makeTimeout();
 
     window.addEventListener('keydown', handleKeyDown, false);
     return () => window.removeEventListener('keydown', handleKeyDown, false);
@@ -76,10 +75,6 @@ function App() {
     }, 300000); // 5min
   }
 
-  const MainVideo = () => (
-    <video src={mainVideo} className="main-video" type="video/webm" autoPlay muted loop/>
-  )
-
   const Screensaver = () => (
     <video src={screensaver} className="screensaver" type="video/webm" autoPlay muted loop/>
   )
@@ -87,7 +82,6 @@ function App() {
   return (
     <>
       {screensaverBool && <Screensaver />}
-      {!identificarCategory && !capturarCategory && !compartilharCategory && <MainVideo />}
       {identificarCategory && <Identificar />}
       {capturarCategory && <Capturar />}
       {compartilharCategory && <Compartilhar />}
