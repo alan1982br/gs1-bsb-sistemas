@@ -103,7 +103,7 @@ function Capturar() {
 
   return (
     <div>
-      <video ref={refs[0].ref} src={mainVideo} className="main-video" onEnded={initCategory} type="video/webm" />
+      <video ref={refs[0].ref} src={mainVideo} className="main-video" onEnded={initCategory} loop type="video/webm" />
       <video ref={refs[1].ref} src={video01} onEnded={executeVideo} type="video/webm" />
       <video ref={refs[2].ref} src={video02} onEnded={executeVideo} type="video/webm" />
       <video ref={refs[3].ref} src={video03} onEnded={executeVideo} type="video/webm" />
