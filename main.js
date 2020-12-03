@@ -18,10 +18,10 @@ async function createWindow () {
   // modo fullscreen
   mainWindow.setFullScreen(false)
   // Se a tela precisar ser maior que o tamnho da tela principal, precisa ser setado aqui
-  // mainWindow.setSize(1920 + 1024, 1080)
+  mainWindow.setSize(3240, 3840)
   // mainWindow.loadURL('http://localhost:3001')
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
     mainWindow = null
