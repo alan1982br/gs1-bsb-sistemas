@@ -9,11 +9,12 @@ import video05 from '../assets/02_capturar/webm/Capturar_Final_corte5.webm';
 import video06 from '../assets/02_capturar/webm/Capturar_Final_corte6.webm';
 import video07 from '../assets/02_capturar/webm/Capturar_Final_corte7.webm';
 
-function Capturar() {
+function Capturar({dataBtn}) {
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown, false);
     return () => window.removeEventListener('keydown', handleKeyDown, false);
-  });
+    handleBtnSocket(dataBtn)
+  },[dataBtn]);
 
   const refs = [
     {
@@ -42,12 +43,8 @@ function Capturar() {
     },
   ];
 
-  // let isKeyDownActive = false;
-
   function handleKeyDown(e) {
     if (e.keyCode === 50) {
-      // isKeyDownActive = false;
-      // keyDownDelay();
 
       refs.some((atual, i) => {
         const current = atual?.ref?.current;
@@ -67,19 +64,27 @@ function Capturar() {
     }
   };
 
-  function executeVideo() {
-    // refs.some((atual, i) => {
-    //   const current = atual?.ref?.current;
+  function handleBtnSocket(e) {
+    console.log('e ' , e);
+    if (e === 50) {
 
-    //   if(current.classList.contains('active')){
-    //     return false; 
-    //   }
+      refs.some((atual, i) => {
+        const current = atual?.ref?.current;
 
-    //   current.classList.add('active');
-    //   current.play();
-    //   return true;
-    // })
-  }
+        if(current.classList.contains('active')) {
+          if(refs.length-1 === i){
+            return false;
+          }
+          current.pause();
+          return false; 
+        }
+
+        current.classList.add('active');
+        current.play();
+        return true;
+      })
+    }
+  };
 
   function initCategory() {
     const current = refs[1].ref.current;
@@ -87,29 +92,21 @@ function Capturar() {
     current.play();
   }
 
-  // function keyDownDelay() {
-  //   window.setTimeout( 
-  //     function() {
-  //       isKeyDownActive = true;
-  //   }, 2000); // 2s
-  // }
-
   useEffect(() => {
     const current = refs[0].ref.current;
     current.classList.add('active');
     current.play();  
-    // keyDownDelay();
   })
 
   return (
     <div>
       <video ref={refs[0].ref} src={mainVideo} className="main-video" onEnded={initCategory} loop type="video/webm" />
-      <video ref={refs[1].ref} src={video01} onEnded={executeVideo} type="video/webm" />
-      <video ref={refs[2].ref} src={video02} onEnded={executeVideo} type="video/webm" />
-      <video ref={refs[3].ref} src={video03} onEnded={executeVideo} type="video/webm" />
-      <video ref={refs[4].ref} src={video04} onEnded={executeVideo} type="video/webm" />
-      <video ref={refs[5].ref} src={video05} onEnded={executeVideo} type="video/webm" />
-      <video ref={refs[6].ref} src={video06} onEnded={executeVideo} type="video/webm" />
+      <video ref={refs[1].ref} src={video01} type="video/webm" />
+      <video ref={refs[2].ref} src={video02} type="video/webm" />
+      <video ref={refs[3].ref} src={video03} type="video/webm" />
+      <video ref={refs[4].ref} src={video04} type="video/webm" />
+      <video ref={refs[5].ref} src={video05} type="video/webm" />
+      <video ref={refs[6].ref} src={video06} type="video/webm" />
       <video ref={refs[7].ref} src={video07} type="video/webm" />
     </div>
   );

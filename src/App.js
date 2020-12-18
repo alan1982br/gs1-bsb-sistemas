@@ -16,13 +16,16 @@ function App() {
   const ENDPOINT = "http://127.0.0.1:4001";
 
   let timeout;
+  const [dataBtn, setDataBtn] = useState(null);
   
   useEffect(() => {
     const socket = socketIOClient(ENDPOINT, {transports: ['websocket', 'polling', 'flashsocket']});
+   
     socket.on("FromAPI", data => {
+      setDataBtn(null);
       console.log(data);
       handleKeyDown("",data);
-      
+      setDataBtn(data);
     });
 
     makeTimeout();
@@ -36,10 +39,6 @@ function App() {
     clearTimeout(timeout);
     setScreensaver(false);
     makeTimeout();
-
-    // if(isKeyDownActive){
-      // isKeyDownActive = false;
-      // keyDownDelay();
 
       if (e.keyCode === 49 || dataBtn === 49 ) {
         setIdentificar(true);
@@ -58,15 +57,7 @@ function App() {
         setIdentificar(false);
         setCapturar(false);
       }
-    // }
   };
-
-  // function keyDownDelay() {
-  //   window.setTimeout( 
-  //     function() {
-  //       isKeyDownActive = true;
-  //   }, 5000); // 5s
-  // }
 
   function makeTimeout() {
     timeout = window.setTimeout( 
@@ -82,9 +73,9 @@ function App() {
   return (
     <>
       {screensaverBool && <Screensaver />}
-      {identificarCategory && <Identificar />}
-      {capturarCategory && <Capturar />}
-      {compartilharCategory && <Compartilhar />}
+      {identificarCategory && <Identificar dataBtn={dataBtn}/>}
+      {capturarCategory && <Capturar dataBtn={dataBtn}/>}
+      {compartilharCategory && <Compartilhar dataBtn={dataBtn}/>}
     </>
   );
 }
