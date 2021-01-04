@@ -44,7 +44,6 @@ function App1() {
   const ENDPOINT = "http://127.0.0.1:4001";
 
   let timeout;
-  let iniciar = true;
 
   const comp = [
     {
@@ -151,6 +150,10 @@ function App1() {
     return () => window.removeEventListener('keydown', handleKeyDown, false);
   },[]);
 
+  useEffect(() => {
+    const current = iden[0].ref.current;
+    current.classList.add('active');
+  },[])
 
   const handleKeyDown = async (e, dataBtn) => {
     clearTimeout(timeout);
@@ -186,12 +189,6 @@ function App1() {
 
       refs.some((atual, i) => {
         const current = atual?.ref?.current;
-        
-        if(refs === iden && iniciar){
-          current.classList.add('active');
-          iniciar = false;
-          return false;
-        }
 
         if(current.classList.contains('active')) {
           if(refs.length-1 === i){
@@ -220,7 +217,7 @@ function App1() {
 
   const Compartilhar = () => (
     <div>
-      <video ref={comp[0].ref} src={mainVideo} className="main-video" loop type="video/webm" />
+      <video ref={comp[0].ref} src={mainVideo} loop type="video/webm" />
       <video ref={comp[1].ref} src={comp01} type="video/webm" />
       <video ref={comp[2].ref} src={comp02} type="video/webm" />
       <video ref={comp[3].ref} src={comp03} type="video/webm" />
@@ -235,7 +232,7 @@ function App1() {
 
   const Capturar = () => (
     <div>
-      <video ref={cap[0].ref} src={mainVideo} className="main-video" loop type="video/webm" />
+      <video ref={cap[0].ref} src={mainVideo} loop type="video/webm" />
       <video ref={cap[1].ref} src={cap01} type="video/webm" />
       <video ref={cap[2].ref} src={cap02} type="video/webm" />
       <video ref={cap[3].ref} src={cap03} type="video/webm" />
@@ -248,8 +245,8 @@ function App1() {
 
   const Identificar = () => (
     <div>
-      <video ref={iden[0].ref} src={mainVideo} className="main-video" autoPlay muted loop type="video/webm" />
-      <video ref={iden[1].ref} src={iden01} muted type="video/webm" />
+      <video ref={iden[0].ref} src={mainVideo} autoPlay muted loop type="video/webm" />
+      <video ref={iden[1].ref} src={iden01} type="video/webm" />
       <video ref={iden[2].ref} src={iden02} type="video/webm" />
       <video ref={iden[3].ref} src={iden03} type="video/webm" />
       <video ref={iden[4].ref} src={iden04} type="video/webm" />

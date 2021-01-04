@@ -15,7 +15,7 @@ function App2() {
   const [screensaverBool, setScreensaver] = useState(false);
   const ENDPOINT = "http://127.0.0.1:4001";
 
-  let timeout, iniciar = true;
+  let timeout;
   const [dataBtn, setDataBtn] = useState(null);
   
   useEffect(() => {
@@ -73,7 +73,7 @@ function App2() {
   return (
     <>
       {screensaverBool && <Screensaver />}
-      {identificarCategory && <Identificar dataBtn={dataBtn} iniciar={iniciar}/>}
+      {identificarCategory && <Identificar dataBtn={dataBtn}/>}
       {capturarCategory && <Capturar dataBtn={dataBtn}/>}
       {compartilharCategory && <Compartilhar dataBtn={dataBtn}/>}
     </>
