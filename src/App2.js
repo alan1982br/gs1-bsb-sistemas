@@ -58,7 +58,7 @@ function App2() {
       }
   
       else if (e.keyCode == 51 || dataBtn == 51 ) {
-        console.lgog("é 51");
+        console.log("é 51");
         setCompartilhar(true);
         setIdentificar(false);
         setCapturar(false);
