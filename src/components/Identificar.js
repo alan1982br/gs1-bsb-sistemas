@@ -13,8 +13,8 @@ import video08 from '../assets/01_identificar/webm/Identificar_Final_corte8.webm
 function Identificar({dataBtn}) {
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown, false);
-    return () => window.removeEventListener('keydown', handleKeyDown, false);
     handleBtnSocket(dataBtn)
+    return () => window.removeEventListener('keydown', handleKeyDown, false);
   },[dataBtn]);
 
   useEffect(() => {

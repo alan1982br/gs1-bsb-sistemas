@@ -12,8 +12,8 @@ import video07 from '../assets/02_capturar/webm/Capturar_Final_corte7.webm';
 function Capturar({dataBtn}) {
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown, false);
-    return () => window.removeEventListener('keydown', handleKeyDown, false);
     handleBtnSocket(dataBtn)
+    return () => window.removeEventListener('keydown', handleKeyDown, false);
   },[dataBtn]);
 
   useEffect(() => {

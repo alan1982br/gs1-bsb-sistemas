@@ -22,8 +22,8 @@ function App2() {
     const socket = socketIOClient(ENDPOINT, {transports: ['websocket', 'polling', 'flashsocket']});
    
     socket.on("FromAPI", data => {
-      console.log(data);
-      setDataBtn(data);
+      console.log(data, typeof(dataBtn));
+      setDataBtn(parseInt(data));
       setTimeout(() => {
         handleKeyDown("",data);
         setDataBtn(null);
@@ -41,20 +41,24 @@ function App2() {
     clearTimeout(timeout);
     setScreensaver(false);
     makeTimeout();
+    console.log(dataBtn, typeof(dataBtn));
 
-      if (e.keyCode === 49 || dataBtn === 49 ) {
+      if (e.keyCode == 49 || dataBtn == 49 ) {
+        console.log("é 49");
         setIdentificar(true);
         setCapturar(false);
         setCompartilhar(false);
       }
   
-      else if (e.keyCode === 50 || dataBtn === 50 ) {
+      else if (e.keyCode == 50 || dataBtn == 50 ) {
+        console.log("é 50");
         setCapturar(true);
         setIdentificar(false);
         setCompartilhar(false);
       }
   
-      else if (e.keyCode === 51 || dataBtn === 51 ) {
+      else if (e.keyCode == 51 || dataBtn == 51 ) {
+        console.lgog("é 51");
         setCompartilhar(true);
         setIdentificar(false);
         setCapturar(false);

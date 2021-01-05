@@ -14,8 +14,8 @@ import video09 from '../assets/03_compartilhar/webm/Compartilhar_final_corte9.we
 function Compartilhar({dataBtn}) {
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown, false);
-    return () => window.removeEventListener('keydown', handleKeyDown, false);
     handleBtnSocket(dataBtn)
+    return () => window.removeEventListener('keydown', handleKeyDown, false);
   },[dataBtn]);
 
   useEffect(() => {
