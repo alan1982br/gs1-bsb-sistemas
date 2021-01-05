@@ -22,10 +22,12 @@ function App2() {
     const socket = socketIOClient(ENDPOINT, {transports: ['websocket', 'polling', 'flashsocket']});
    
     socket.on("FromAPI", data => {
-      setDataBtn(null);
       console.log(data);
-      handleKeyDown("",data);
       setDataBtn(data);
+      setTimeout(() => {
+        handleKeyDown("",data);
+        setDataBtn(null);
+      }, 50)
     });
 
     makeTimeout();
