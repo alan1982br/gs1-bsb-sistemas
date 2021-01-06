@@ -24,10 +24,6 @@ video.active {
   transition: opacity 0.5s;
 }
 
-.main-video {
-  opacity: 1;
-}
-
 .screensaver {
   z-index: 20;
   opacity: 1;

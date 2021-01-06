@@ -13,9 +13,14 @@ import video08 from '../assets/01_identificar/webm/Identificar_Final_corte8.webm
 function Identificar({dataBtn}) {
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown, false);
-    return () => window.removeEventListener('keydown', handleKeyDown, false);
     handleBtnSocket(dataBtn)
+    return () => window.removeEventListener('keydown', handleKeyDown, false);
   },[dataBtn]);
+
+  useEffect(() => {
+    const current = refs[0].ref.current;
+    current.classList.add('active');
+  })
 
   const refs = [
     {
@@ -90,21 +95,10 @@ function Identificar({dataBtn}) {
     }
   };
 
-  function initCategory() {
-    const current = refs[1].ref.current;
-    current.classList.add('active');
-    current.play();
-  }
-
-  useEffect(() => {
-    const current = refs[0].ref.current;
-    current.classList.add('active');
-  })
-
   return (
     <div>
-      <video ref={refs[0].ref} src={mainVideo} className="main-video" onEnded={initCategory} autoPlay muted loop type="video/webm" />
-      <video ref={refs[1].ref} src={video01} muted type="video/webm" />
+      <video ref={refs[0].ref} src={mainVideo} autoPlay muted loop type="video/webm" />
+      <video ref={refs[1].ref} src={video01} type="video/webm" />
       <video ref={refs[2].ref} src={video02} type="video/webm" />
       <video ref={refs[3].ref} src={video03} type="video/webm" />
       <video ref={refs[4].ref} src={video04} type="video/webm" />
